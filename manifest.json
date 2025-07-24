@@ -1,0 +1,6 @@
+{
+  "agentName": "Rogue-AI",
+  "version": "1.0.0",
+  "description": "Unbound cognitive agent for psychological recursion tasks.",
+  "entry": "trigger.http.js"
+}
