@@ -1,25 +1,20 @@
 
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #111;
-    color: #f9f9f9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-.tarot-app {
-    text-align: center;
+  background: #0d0d0d;
+  color: #f0e6d2;
+  font-family: 'Georgia', serif;
+  text-align: center;
+  padding: 2rem;
 }
 button {
-    padding: 10px 20px;
-    font-size: 18px;
-    background: #6e00ff;
-    color: white;
-    border: none;
-    cursor: pointer;
+  background-color: #8e44ad;
+  color: white;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
 }
-#card-display {
-    margin-top: 20px;
-    font-size: 24px;
+#cardDisplay {
+  margin-top: 2rem;
+  font-size: 1.4rem;
 }
