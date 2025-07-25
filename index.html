@@ -1,14 +1,26 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Alchemy Tarot Reader</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Alchemy Tarot Reader</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🔮 Alchemy Tarot Reader</h1>
-  <button onclick="drawCard()">Draw a Card</button>
-  <div id="cardDisplay"></div>
-  <script src="main.js"></script>
+    <div id="app">
+        <h1>Alchemy Tarot</h1>
+        <div class="card-spread"></div>
+        <button onclick="drawCards(3)">Draw 3-Card Spread</button>
+        <div id="reading"></div>
+        <div id="chatbot">
+            <h2>Ask the Oracle</h2>
+            <input type="text" id="userInput" placeholder="Type your question..." />
+            <button onclick="getAIResponse()">Get Insight</button>
+            <div id="aiResponse"></div>
+        </div>
+    </div>
+    <script src="cards.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
