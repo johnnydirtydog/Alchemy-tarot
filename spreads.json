@@ -1,0 +1,25 @@
+{
+  "Three Card Spread": {
+    "description": "Past - Present - Future",
+    "positions": [
+      "Past",
+      "Present",
+      "Future"
+    ]
+  },
+  "Celtic Cross": {
+    "description": "Classic 10-card Celtic Cross spread",
+    "positions": [
+      "1. Present",
+      "2. Challenge",
+      "3. Past",
+      "4. Future",
+      "5. Above",
+      "6. Below",
+      "7. Advice",
+      "8. External Influences",
+      "9. Hopes and Fears",
+      "10. Outcome"
+    ]
+  }
+}

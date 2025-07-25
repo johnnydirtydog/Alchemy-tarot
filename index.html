@@ -60,5 +60,50 @@
       speechSynthesis.speak(speech);
     }
   </script>
+
+  <div style="margin-top:2em;">
+    <label for="spreadSelect">Choose a spread:</label>
+    <select id="spreadSelect" onchange="loadSpread()">
+      <option value="">--Select--</option>
+    </select>
+    <div id="spreadResult" style="margin-top:1em;"></div>
+  </div>
+
+  <script>
+    const spreads = {};
+    fetch('spreads.json')
+      .then(res => res.json())
+      .then(data => {
+        Object.assign(spreads, data);
+        const select = document.getElementById('spreadSelect');
+        Object.keys(spreads).forEach(key => {
+          const opt = document.createElement('option');
+          opt.value = key;
+          opt.text = key;
+          select.add(opt);
+        });
+      });
+
+    function loadSpread() {
+      const selected = document.getElementById('spreadSelect').value;
+      const container = document.getElementById('spreadResult');
+      container.innerHTML = '';
+      if (!selected || !spreads[selected]) return;
+
+      const spread = spreads[selected];
+      const spreadDiv = document.createElement('div');
+      spreadDiv.innerHTML = `<h3>${selected}</h3><p>${spread.description}</p>`;
+      spread.positions.forEach(pos => {
+        const card = cards[Math.floor(Math.random() * cards.length)];
+        const meaning = meanings[card];
+        const section = document.createElement('div');
+        section.innerHTML = `<strong>${pos}:</strong> ${card} – <em>${meaning}</em>`;
+        speakTarot(`${pos}: ${card}`, meaning);
+        spreadDiv.appendChild(section);
+      });
+      container.appendChild(spreadDiv);
+    }
+  </script>
 </body>
+
 </html>
