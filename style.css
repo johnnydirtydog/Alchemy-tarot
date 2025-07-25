@@ -1,0 +1,25 @@
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #111;
+    color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.tarot-app {
+    text-align: center;
+}
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background: #6e00ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+#card-display {
+    margin-top: 20px;
+    font-size: 24px;
+}
