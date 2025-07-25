@@ -9,3 +9,9 @@ body {
 @media (max-width: 600px) {
     body { font-size: 1.1em; padding: 1rem; }
 }
+
+
+.card.drawn {
+    transform: rotateY(180deg);
+    transition: transform 1.5s ease;
+}
