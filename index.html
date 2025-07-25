@@ -104,6 +104,36 @@
       container.appendChild(spreadDiv);
     }
   </script>
+
+  <div style="margin-top:2em;">
+    <label for="moonPhase">Select Moon Phase:</label>
+    <select id="moonPhase" onchange="showMoonMeaning()">
+      <option value="">--Choose Phase--</option>
+      <option value="New Moon">New Moon</option>
+      <option value="Waxing Crescent">Waxing Crescent</option>
+      <option value="First Quarter">First Quarter</option>
+      <option value="Waxing Gibbous">Waxing Gibbous</option>
+      <option value="Full Moon">Full Moon</option>
+      <option value="Waning Gibbous">Waning Gibbous</option>
+      <option value="Last Quarter">Last Quarter</option>
+      <option value="Waning Crescent">Waning Crescent</option>
+    </select>
+    <div id="moonMeaning" style="margin-top:1em;"></div>
+  </div>
+  <script>
+    const moonMeanings = {"New Moon": "Time for setting intentions, beginnings, and planting seeds.", "Waxing Crescent": "A period of growth, planning, and forward motion.", "First Quarter": "Overcoming challenges and building momentum.", "Waxing Gibbous": "Refining, adjusting, and staying focused.", "Full Moon": "Culmination, release, and heightened energy.", "Waning Gibbous": "Gratitude, introspection, and integration.", "Last Quarter": "Letting go, reevaluating, and inner work.", "Waning Crescent": "Rest, recuperation, and spiritual reflection."};
+    function showMoonMeaning() {
+      const val = document.getElementById('moonPhase').value;
+      const display = document.getElementById('moonMeaning');
+      if (val && moonMeanings[val]) {
+        display.innerHTML = `<strong>${val}:</strong> ${moonMeanings[val]}`;
+        speakTarot(val, moonMeanings[val]);
+      } else {
+        display.innerHTML = '';
+      }
+    }
+  </script>
 </body>
+
 
 </html>
