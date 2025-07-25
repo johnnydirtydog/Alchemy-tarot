@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fusion Oracle</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; background: #111; color: #f4f4f4; }
+    input, select, button { margin: 10px 0; padding: 8px; width: 100%; }
+    #result { white-space: pre-wrap; margin-top: 20px; border-top: 1px solid #999; padding-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>🜍 Fusion Oracle</h1>
+  <input id="name" placeholder="Your Name" />
+  <input id="birthdate" type="date" />
+  <select id="cards" multiple size="6">
+    <option value="The Tower">The Tower</option>
+    <option value="The Moon">The Moon</option>
+    <option value="The Star">The Star</option>
+    <option value="Death">Death</option>
+    <option value="Temperance">Temperance</option>
+    <option value="The Sun">The Sun</option>
+  </select>
+  <button onclick="getReading()">Reveal My Spread</button>
+  <div id="result"></div>
+
+  <script>
+    async function getReading() {
+      const name = document.getElementById('name').value
+      const birthdate = document.getElementById('birthdate').value
+      const selected = Array.from(document.getElementById('cards').selectedOptions).map(o => o.value)
+
+      const res = await fetch('/oracle', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ name, birthdate, cards: selected })
+      })
+      const data = await res.json()
+      document.getElementById('result').textContent = JSON.stringify(data, null, 2)
+    }
+  </script>
+</body>
+</html>
