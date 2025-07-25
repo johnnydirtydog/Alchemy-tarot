@@ -2,44 +2,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Goddess Mode Tarot Ritual</title>
+  <meta charset="UTF-8">
+  <title>Tarot Ritual: Full Alchemy Mode</title>
   <style>
     body {
-      margin: 0;
-      background: black url('stars_bg.gif') repeat;
-      color: white;
-      font-family: 'Georgia', serif;
+      background: black url('stars_bg.gif') center center / cover no-repeat;
+      color: #ffe;
       text-align: center;
+      font-family: Georgia, serif;
+      padding-top: 3em;
     }
     .card {
-      margin-top: 100px;
-      padding: 20px;
-      background: rgba(0,0,0,0.7);
-      border: 1px solid #fff;
-      border-radius: 8px;
-      display: inline-block;
+      font-size: 2em;
+      margin: 1em;
+    }
+    button {
+      background: #444;
+      color: white;
+      border: none;
+      padding: 1em 2em;
+      margin: 1em;
+      cursor: pointer;
+      font-size: 1em;
     }
   </style>
 </head>
 <body>
-  <audio src="ambient_moonlit_ritual.mp3" autoplay loop></audio>
-  <div class="card">
-    <h1>🃏 Goddess Mode Tarot</h1>
-    <p>Draw a card, whisper your intent, and listen to what the stars say...</p>
-  </div>
-</body>
-</html>
+  <audio autoplay loop>
+    <source src="ambient_moonlit_ritual.mp3" type="audio/mp3">
+  </audio>
+  <h1>Tarot Alchemy Ritual</h1>
+  <button onclick="drawCard()">Draw a Card</button>
+  <div class="card" id="card"></div>
+  <div id="meaning" style="margin-top:2em; font-style: italic;"></div>
 
-  <div style="margin-top:50px;">
-    <button onclick="drawCard()">🃏 Draw Card</button>
-    <p id="card-output">No card drawn yet.</p>
-  </div>
-  <div style="margin-top:20px;">
-    <input id="chat-input" placeholder="Ask your question..." style="padding:10px; width:300px;" />
-    <button onclick="chatbotResponse()">Ask the Tarot</button>
-    <p id="chat-output"></p>
-  </div>
-  <script src="script.js"></script>
+  <script>
+    const meanings = {};
+    fetch('tarot_meanings.json')
+      .then(response => response.json())
+      .then(data => Object.assign(meanings, data));
+
+    const cards = Object.keys(meanings);
+
+    function drawCard() {
+      const random = cards[Math.floor(Math.random() * cards.length)];
+      document.getElementById("card").innerText = random;
+      document.getElementById("meaning").innerText = meanings[random];
+      speakTarot(random, meanings[random]);
+    }
+
+    function speakTarot(title, msg) {
+      const speech = new SpeechSynthesisUtterance(`${title}. ${msg}`);
+      speech.pitch = 0.85;
+      speech.rate = 0.95;
+      speech.volume = 1;
+      speech.lang = 'en-US';
+      speechSynthesis.speak(speech);
+    }
+  </script>
 </body>
 </html>
