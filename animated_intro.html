@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Alchemy Tarot Ritual</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(ellipse at center, #0b0013 0%, #000 100%);
+      overflow: hidden;
+      height: 100vh;
+      font-family: 'Georgia', serif;
+      color: #fdf6e3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .intro-text {
+      font-size: 4em;
+      letter-spacing: 0.1em;
+      animation: fadeInZoom 5s ease-in-out forwards;
+      opacity: 0;
+    }
+
+    .sigil {
+      margin-top: 20px;
+      width: 100px;
+      height: 100px;
+      background: url('sigil.png') no-repeat center center;
+      background-size: contain;
+      animation: pulse 3s infinite;
+    }
+
+    @keyframes fadeInZoom {
+      0% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.7; }
+    }
+  </style>
+</head>
+<body>
+  <div class="intro-text">Alchemy Tarot Ritual</div>
+  <div class="sigil"></div>
+</body>
+</html>
