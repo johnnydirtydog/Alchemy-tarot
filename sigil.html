@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sigil Generator</title>
+  <style>
+    body {
+      background-color: #0f0f0f;
+      color: #f4f4f4;
+      font-family: sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    canvas {
+      border: 1px solid #fff;
+      background-color: #1c1c1c;
+      margin-top: 20px;
+    }
+    input {
+      padding: 8px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sigil Generator</h1>
+  <p>Enter your intent, press draw, and a sigil will manifest.</p>
+  <input type="text" id="intentInput" placeholder="Enter your intent" />
+  <button onclick="drawSigil()">Draw Sigil</button>
+  <canvas id="sigilCanvas" width="500" height="500"></canvas>
+
+  <script>
+    function drawSigil() {
+      const canvas = document.getElementById('sigilCanvas');
+      const ctx = canvas.getContext('2d');
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const input = document.getElementById('intentInput').value.toUpperCase().replace(/[^A-Z]/g, '');
+      const unique = [...new Set(input)];
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height / 2;
+      const radius = 200;
+
+      ctx.strokeStyle = '#ff0055';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+
+      unique.forEach((char, i) => {
+        const angle = (i / unique.length) * 2 * Math.PI;
+        const x = centerX + radius * Math.cos(angle);
+        const y = centerY + radius * Math.sin(angle);
+        if (i === 0) {
+          ctx.moveTo(x, y);
+        } else {
+          ctx.lineTo(x, y);
+        }
+      });
+
+      ctx.closePath();
+      ctx.stroke();
+    }
+  </script>
+</body>
+</html>
