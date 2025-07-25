@@ -32,3 +32,10 @@ body {
     font-style: italic;
     color: #ccc;
 }
+
+.oracle-tagline {
+    font-style: italic;
+    color: #d69acb;
+    margin-top: -1em;
+    margin-bottom: 2em;
+}
