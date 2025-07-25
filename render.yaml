@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: fusion-oracle-ai
+    runtime: node
+    region: oregon
+    plan: free
+    buildCommand: npm install
+    startCommand: node oracle.http.js
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
