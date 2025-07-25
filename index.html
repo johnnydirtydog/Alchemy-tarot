@@ -2,25 +2,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Alchemy Tarot Reader</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Goddess Mode Tarot Ritual</title>
+  <style>
+    body {
+      margin: 0;
+      background: black url('stars_bg.gif') repeat;
+      color: white;
+      font-family: 'Georgia', serif;
+      text-align: center;
+    }
+    .card {
+      margin-top: 100px;
+      padding: 20px;
+      background: rgba(0,0,0,0.7);
+      border: 1px solid #fff;
+      border-radius: 8px;
+      display: inline-block;
+    }
+  </style>
 </head>
 <body>
-    <div id="app">
-        <h1>Alchemy Tarot</h1><p class='oracle-tagline'>The cards desire to speak... if you dare listen.</p>
-        <div class="card-spread"></div>
-        <button onclick="drawCards(3)">Draw 3-Card Spread</button>
-        <div id="reading"></div>
-        <div id="chatbot">
-            <h2>Ask the Oracle</h2>
-            <input type="text" id="userInput" placeholder="Type your question..." />
-            <button onclick="getAIResponse()">Get Insight</button>
-            <div id="aiResponse"></div>
-        </div>
-    </div>
-    <script src="cards.js"></script>
-    <script src="main.js"></script>
+  <audio src="ambient_moonlit_ritual.mp3" autoplay loop></audio>
+  <div class="card">
+    <h1>🃏 Goddess Mode Tarot</h1>
+    <p>Draw a card, whisper your intent, and listen to what the stars say...</p>
+  </div>
 </body>
 </html>
