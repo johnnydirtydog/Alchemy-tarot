@@ -1,26 +1,21 @@
+# TarotGoldAI
 
-# 🔮 Alchemy Tarot Reader
+**TarotGoldAI** is an AI-powered spiritual commerce agent that blends Tarot, Alchemy, and Hermetic insight. It delivers custom readings, monetized wisdom rituals, and esoteric coaching via Stripe integration.
 
-This is a simple static tarot card reader web app built with HTML, CSS, and JavaScript.  
-Draw from a virtual 78-card tarot deck and receive randomized insights.
+## Features
+- GPT-4o tarot + alchemy reader
+- Monetized offerings (via Stripe)
+- Mystical frontend with chatbox UI
+- Custom ritual/product delivery
 
-## 🧩 Features
-- 78 unique card draw logic
-- Dark mode theme
-- Render & Netlify ready
+## Setup
+1. Replace `YOUR_API_KEY` in `chatbot.js` with your OpenAI key.
+2. Deploy to Vercel, Netlify, or Render.
+3. Use Stripe for checkout links.
 
-## 🚀 Deploy to Render
-1. Upload this repo to GitHub
-2. Go to [Render.com](https://render.com), click "New Static Site"
-3. Connect your GitHub repo
-4. Set:
-   - **Build Command**: *(leave blank)*
-   - **Publish Directory**: `.`
+## Products
+- 3-Card Alchemy Reading: $4.44
+- 7-Day Ritual Guide: $11.11
+- Custom Grimoire PDF: $33.00
 
-## 🎴 Expand This
-You can upgrade this by:
-- Adding images inside `/cards/`
-- Expanding meanings in `main.js`
-- Linking it to a chatbot for reading
-
-Enjoy your magical dev work 🧙‍♂️✨
+Blessings and Profit 🙏

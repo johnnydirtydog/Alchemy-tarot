@@ -1,0 +1,17 @@
+[
+  {
+    "name": "3-Card Alchemy Reading",
+    "price": 4.44,
+    "link": "https://buy.stripe.com/test_tarotreading"
+  },
+  {
+    "name": "7-Day Shadow Ritual Guide",
+    "price": 11.11,
+    "link": "https://buy.stripe.com/test_shadowritual"
+  },
+  {
+    "name": "Custom Grimoire PDF",
+    "price": 33.00,
+    "link": "https://buy.stripe.com/test_grimoire"
+  }
+]

@@ -1,0 +1,8 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	url = https://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@github.com/johnnydirtydog/Alchemy-tarot.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
