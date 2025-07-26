@@ -5,7 +5,7 @@ sendBtn.onclick = async () => {
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
         method: "POST",
         headers: {
-            "Authorization": "Bearer YOUR_API_KEY",
+            "Authorization": "Bearer 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"
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
