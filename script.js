@@ -9,6 +9,3 @@ async function drawCard() {
     card.classList.add('flipped');
   }, 1000);
 }
-document.getElementById('card-text').innerText = `${data.card.name}: ${data.card.meaning}`;
-const imagePath = `img/${data.card.name}.png`;
-document.getElementById('card-img').src = imagePath;
