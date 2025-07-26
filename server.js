@@ -1,16 +1,27 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const cors = require('cors')
-const { generate } = require('./oracle.logic')
+const express = require('express');
+const { Configuration, OpenAIApi } = require('openai');
+const tarotDeck = require('./tarotDeck.json');
+const app = express();
+app.use(express.json());
 
-const app = express()
-app.use(cors())
-app.use(bodyParser.json())
+const config = new Configuration({ apiKey: process.env.OPENAI_API_KEY });
+const openai = new OpenAIApi(config);
 
-app.post('/oracle', (req, res) => {
-  const { name, birthdate, cards } = req.body
-  const reading = generate(name, birthdate, cards)
-  res.json(reading)
-})
+function drawCard() {
+  const card = tarotDeck[Math.floor(Math.random() * tarotDeck.length)];
+  return card;
+}
 
-app.listen(3000, () => console.log('Fusion Oracle running on port 3000'))
+app.post('/tarot', async (req, res) => {
+  const card = drawCard();
+  const response = await openai.createChatCompletion({
+    model: 'gpt-4',
+    messages: [
+      { role: 'system', content: 'You are Scubaaai, an underwater tarot oracle.' },
+      { role: 'user', content: `Interpret the card ${card.name}: ${card.meaning}` }
+    ],
+  });
+  res.json({ card, oracleMessage: response.data.choices[0].message.content });
+});
+
+app.listen(3000, () => console.log('Scubaaai is listening from the depths... 🌊🔮'));

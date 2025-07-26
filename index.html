@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>UmbraAI - Shadow Oracle</title>
+  <meta charset="UTF-8">
+  <title>Scubaaai Tarot Animation</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>UmbraAI</h1>
-  <p>Whisper your question to the shadows...</p>
-  <textarea id="chatbox" rows="4" cols="60" placeholder="Ask the Oracle..."></textarea><br>
-  <button id="send">Divine</button>
-  <pre id="output"></pre>
-  <script src="scripts/chatbot.js"></script>
+  <div class="tarot-container">
+    <div class="tarot-card" id="card">
+      <div class="tarot-front">?</div>
+      <div class="tarot-back" id="card-back">Loading...</div>
+    </div>
+    <button onclick="drawCard()">Draw Card</button>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>

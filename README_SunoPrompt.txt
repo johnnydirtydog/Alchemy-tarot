@@ -1,0 +1,1 @@
+[Voice: genderless aquatic whisper], [Mood: mystical + riddling], [Genre: ambient glitchwave + underwater fx], [FX: bubble echo, shimmer delay, kelp rustle], [Structure: question → pull → spiral interpretation → call to action]
