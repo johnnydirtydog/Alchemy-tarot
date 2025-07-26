@@ -1,21 +1,35 @@
 const chatBox = document.getElementById("chatbox");
 const sendBtn = document.getElementById("send");
+const output = document.getElementById("output");
+
 sendBtn.onclick = async () => {
-    const userMsg = chatBox.value;
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
-        method: "POST",
-        headers: {
-            "Authorization": "Bearer " 
-            "Content-Type": "application/json"
-        },fetch("/api/openai-proxy", {
-        body: JSON.stringify({
-            model: "gpt-4o",
-            messages: [
-                { role: "system", content: "You are TarotGoldAI, master of hermetic insight..." },
-                { role: "user", content: userMsg }
-            ]
-        })
+  const userMsg = chatBox.value;
+  output.innerText = "🔮 Reading your fate...";
+
+  try {
+    const response = await fetch("/api/openai-proxy", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        messages: [
+          { role: "system", content: "You are TarotGoldAI, a mystical tarot and alchemy reader." },
+          { role: "user", content: userMsg }
+        ]
+      })
     });
+
     const result = await response.json();
-    document.getElementById("output").innerText = result.choices[0].message.content;
+
+    if (result.choices && result.choices[0]) {
+      output.innerText = result.choices[0].message.content;
+    } else {
+      output.innerText = "⚠️ No response from the oracle.";
+      console.error("OpenAI returned no choices:", result);
+    }
+  } catch (err) {
+    output.innerText = "🧨 An error occurred.";
+    console.error("Fetch failed:", err);
+  }
 };
