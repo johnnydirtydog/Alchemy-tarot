@@ -1,27 +1,19 @@
+
 const express = require('express');
-const { Configuration, OpenAIApi } = require('openai');
-const tarotDeck = require('./tarotDeck.json');
+const fs = require('fs');
+const cors = require('cors');
+const path = require('path');
 const app = express();
+app.use(cors());
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 
-const config = new Configuration({ apiKey: process.env.OPENAI_API_KEY });
-const openai = new OpenAIApi(config);
+const deck = require('./tarotDeck.json');
 
-function drawCard() {
-  const card = tarotDeck[Math.floor(Math.random() * tarotDeck.length)];
-  return card;
-}
-
-app.post('/tarot', async (req, res) => {
-  const card = drawCard();
-  const response = await openai.createChatCompletion({
-    model: 'gpt-4',
-    messages: [
-      { role: 'system', content: 'You are Scubaaai, an underwater tarot oracle.' },
-      { role: 'user', content: `Interpret the card ${card.name}: ${card.meaning}` }
-    ],
-  });
-  res.json({ card, oracleMessage: response.data.choices[0].message.content });
+app.post('/tarot', (req, res) => {
+  const card = deck[Math.floor(Math.random() * deck.length)];
+  res.json({ card });
 });
 
-app.listen(3000, () => console.log('Scubaaai is listening from the depths... 🌊🔮'));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

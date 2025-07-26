@@ -1,1 +1,1 @@
-[Voice: genderless aquatic whisper], [Mood: mystical + riddling], [Genre: ambient glitchwave + underwater fx], [FX: bubble echo, shimmer delay, kelp rustle], [Structure: question → pull → spiral interpretation → call to action]
+README: Deploy this app to Render or Vercel. Server serves tarot API. UI is animated tarot flip.

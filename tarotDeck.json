@@ -1,6 +1,1 @@
-[
-  { "name": "The Fool", "meaning": "New beginnings, innocence, risk" },
-  { "name": "The Tower", "meaning": "Sudden change, upheaval" },
-  { "name": "The Magician", "meaning": "Manifestation, resourcefulness" },
-  { "name": "The Lovers", "meaning": "Connection, duality, choice" }
-]
+[{"name": "The Fool", "meaning": "New beginnings, innocence, spontaneity"}, {"name": "The Magician", "meaning": "Power, skill, concentration, action"}, {"name": "The Tower", "meaning": "Sudden change, upheaval, chaos"}, {"name": "Death", "meaning": "Endings, transformation, transition"}]
